@@ -1,9 +1,9 @@
-package bdproject;
+package repositories;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
-import Samoloty.*;
+import models.*;
 
 public class PasazerMapper implements RowMapper<Pasazer> {
     public Pasazer mapRow(ResultSet rs, int rowNum) throws SQLException {

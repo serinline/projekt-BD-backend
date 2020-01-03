@@ -1,7 +1,4 @@
-package bdproject;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+package controllers;
 
 import java.util.concurrent.atomic.AtomicLong;
 

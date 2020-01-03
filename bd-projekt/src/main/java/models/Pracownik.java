@@ -1,15 +1,11 @@
-package Samoloty;
+package models;
 
-public class Pasazer {
+public class Pracownik {
     private String imie;
     private String nazwisko;
     private Integer pesel;
     private String obywatelstwo;
-    private Integer id_pasazer;
-
-    public Integer getId_pasazer() {
-        return id_pasazer;
-    }
+    private String stanowisko;
 
     public String getImie(){
         return imie;
@@ -27,8 +23,8 @@ public class Pasazer {
         return obywatelstwo;
     }
 
-    public void setId_pasazer(Integer id_pasazer) {
-        this.id_pasazer = id_pasazer;
+    public String getStanowisko(){
+        return stanowisko;
     }
 
     public void setImie(String imie){
@@ -45,5 +41,9 @@ public class Pasazer {
 
     public void setObywatelstwo(String obywatelstwo){
         this.obywatelstwo = obywatelstwo;
+    }
+
+    public void setStanowisko(String stanowisko){
+        this.stanowisko = stanowisko;
     }
 }

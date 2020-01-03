@@ -1,8 +1,6 @@
-package bdproject;
+package repositories;
 
-import java.util.List;
-import java.util.Optional;
-import Samoloty.*;
+import models.*;
 
 public interface BagazRepository {
 

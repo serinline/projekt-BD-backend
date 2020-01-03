@@ -1,4 +1,4 @@
-package Samoloty;
+package models;
 
 public class Bagaz {
     private Integer id_bagaz;

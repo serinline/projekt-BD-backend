@@ -1,7 +1,11 @@
-package bdproject;
+package repositories;
 
+import models.Pasazer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import javax.sql.DataSource;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class PasazerRepositoryImpl implements PasazerRepository {
@@ -43,12 +47,11 @@ public class PasazerRepositoryImpl implements PasazerRepository {
                 "select * from pasazer",
                 (rs, rowNum) ->
                         new Pasazer(
-                                rs.getInt("id_pasazer");
-                                rs.getString("imie");
-                                rs.getString("nazwisko");
-                                rs.getInt("pesel");
-                                rs.getString("obywatelstwo");
-                        )
+                                rs.getInt("id_pasazer"),
+                                rs.getString("imie"),
+                                rs.getString("nazwisko"),
+                                rs.getInt("pesel"),
+                                rs.getString("obywatelstwo"))
         );
     }
 

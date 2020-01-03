@@ -1,7 +1,9 @@
-package bdproject;
+package repositories;
 
+import models.Bagaz;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import javax.sql.DataSource;
+import org.springframework.stereotype.Repository;
 
 @Repository
 public class BagazRepositoryImpl implements BagazRepository {
@@ -20,7 +22,7 @@ public class BagazRepositoryImpl implements BagazRepository {
 //    }
 
     @Override
-    int dodajBagaz(Bagaz bagaz){
+    public int dodajBagaz(Bagaz bagaz){
         return jdbcTemplate.update(
                     "insert into bagaz (id_bagaz, id_rezerwacja, waga) values (?, ?, ?)",
                     bagaz.getId_bagaz(),
@@ -28,10 +30,9 @@ public class BagazRepositoryImpl implements BagazRepository {
                     bagaz.getWaga()
              );
         }
-    }
 
     @Override
-    int usun(Integer id){
+    public int usun(Integer id){
         return jdbcTemplate.update(
                 "delete bagaz where id_bagaz = ?", id);
     }

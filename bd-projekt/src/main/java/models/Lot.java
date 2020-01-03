@@ -1,10 +1,17 @@
-package Samoloty;
+package models;
 
 public class Lot {
     private String lotnisko_wylot;
     private String lotnisko_przylot;
     private String wylot;
     private String przylot;
+
+    public Lot(String lotnisko_wylot, String lotnisko_przylot, String wylot, String przylot) {
+        setLotnisko_przylot(lotnisko_przylot);
+        setLotnisko_wylot(lotnisko_wylot);
+        setPrzylot(przylot);
+        setWylot(wylot);
+    }
 
     public String getLotnisko_wylot(){
         return lotnisko_wylot;
@@ -37,4 +44,5 @@ public class Lot {
     public void setWylot(String wylot) {
         this.wylot = wylot;
     }
+
 }

@@ -1,9 +1,12 @@
-package bdproject;
+package repositories;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import javax.sql.DataSource;
 
-import Samoloty.*;
+import models.*;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class SamolotRepositoryImpl implements SamolotRepository {
@@ -12,15 +15,15 @@ public class SamolotRepositoryImpl implements SamolotRepository {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    List<Samolot> znajdzPoId(Integer id) {
+    public List<Samolot> znajdzPoId(Integer id) {
         return jdbcTemplate.query(
                 "select * from samolot where id like ?",
                 new Object[]{"%" + id},
                 (rs, rowNum) ->
                         new Samolot(
-                                rs.getInt("id_samolot");
-                                rs.getString("marka");
-                                rs.getString("model");
+                                rs.getInt("id_samolot"),
+                                rs.getString("marka"),
+                                rs.getString("model")
                         )
         );
     }
