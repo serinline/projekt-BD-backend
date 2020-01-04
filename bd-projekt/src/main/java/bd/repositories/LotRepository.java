@@ -12,4 +12,5 @@ public interface LotRepository {
 
     List<Lot> znajdzPoPrzylocie(String miasto);
 
+    List<Lot> znajdzPoPrzylocieWylocie(String miasto_wylot, String miasto_przylot);
 }

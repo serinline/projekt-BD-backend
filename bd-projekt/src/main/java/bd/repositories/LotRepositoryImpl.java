@@ -57,4 +57,19 @@ public class LotRepositoryImpl implements LotRepository {
                         )
         );
     }
+
+    @Override
+    public List<Lot> znajdzPoPrzylocieWylocie(String miasto_wylot, String miasto_przylot){
+        return jdbcTemplate.query(
+                "select * from lot where lotnisko_przylot like ? and lotnisko_wylot like ?",
+                new Object[]{"%" + miasto_przylot, "%" + miasto_wylot},
+                (rs, rowNum) ->
+                        new Lot(
+                                rs.getString("lotnisko_wylot"),
+                                rs.getString("lotnisko_przylot"),
+                                rs.getString("wylot"),
+                                rs.getString("przylot")
+                        )
+        );
+    }
 }

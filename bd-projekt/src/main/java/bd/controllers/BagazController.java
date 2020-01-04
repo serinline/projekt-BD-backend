@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.*;
 import bd.repositories.BagazRepository;
 
 @RestController
-public class MainController {
+public class BagazController {
 
     private final
     BagazRepository bagazRepository;
 
-    public MainController(BagazRepository bagazRepository) {
+    public BagazController(BagazRepository bagazRepository) {
         this.bagazRepository = bagazRepository;
     }
 
@@ -23,10 +23,4 @@ public class MainController {
         }
         return null;
     }
-
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello there!";
-    }
-
 }
