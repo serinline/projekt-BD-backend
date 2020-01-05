@@ -7,6 +7,14 @@ public class Pracownik {
     private String obywatelstwo;
     private String stanowisko;
 
+    public Pracownik(String imie, String nazwisko, String stanowisko, int pesel, String obywatelstwo) {
+        setImie(imie);
+        setNazwisko(nazwisko);
+        setStanowisko(stanowisko);
+        setPesel(pesel);
+        setObywatelstwo(obywatelstwo);
+    }
+
     public String getImie(){
         return imie;
     }
