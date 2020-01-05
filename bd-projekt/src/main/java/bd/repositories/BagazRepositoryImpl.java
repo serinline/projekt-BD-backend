@@ -13,16 +13,6 @@ public class BagazRepositoryImpl implements BagazRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-//    public void setDataSource(DataSource dataSource) {
-//        this.jdbcTemplate = new JdbcTemplate(dataSource);
-//    }
-//
-//    public void setValues(Integer id, Integer id2, Integer waga) {
-//        this.jdbcTemplate.update(
-//                "insert into bagaz (id_bagaz, id_rezerwacja, waga) values (?, ?, ?)",
-//                id, id2, waga);
-//    }
-
     @Override
     public int dodajBagaz(Bagaz bagaz){
         return jdbcTemplate.update(

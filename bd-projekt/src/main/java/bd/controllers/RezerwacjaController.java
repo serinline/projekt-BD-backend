@@ -1,12 +1,12 @@
 package bd.controllers;
 
 import bd.models.Pasazer;
+import bd.models.Pracownik;
 import bd.models.Rezerwacja;
 import bd.repositories.RezerwacjaRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class RezerwacjaController {
@@ -25,5 +25,15 @@ public class RezerwacjaController {
             return rezerwacja;
         }
         return null;
+    }
+
+    @GetMapping("/zaloga/{id}")
+    List<Pracownik> zaloga(@PathVariable Integer id){
+        return rezerwacjaRepository.wypiszZaloge(id);
+    }
+
+    @PutMapping("/miejsca/{msc}/{id}")
+    int zajeteMiejsce(@PathVariable String msc, @PathVariable Integer id){
+        return rezerwacjaRepository.updateMiejsca(msc, id);
     }
 }

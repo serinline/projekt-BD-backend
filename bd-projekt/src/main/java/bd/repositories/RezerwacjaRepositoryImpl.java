@@ -17,15 +17,9 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
     @Override
     public int updateMiejsca(String miejsce, Integer id_samolot){
         return jdbcTemplate.update(
-                "update miejsca set zajete = true where miejsce = ? and id_samolot =?;",
+                "update miejsca set zajete = true where miejsce like ? and id_samolot = ?;",
                 miejsce, id_samolot);
     }
-
-//    @Override
-//    public int stworzRezerwacje(Integer id_pasazer, Integer id_lot, Integer id_bagaz, String miejsce){
-//        return jdbcTemplate.update("insert into rezerwacja (id_pasazer, id_lot, id_bagaz, miejsce) values (?, ?, ?, ?),",
-//                "id_pasazer, id_lot, id_bagaz, miejsce");
-//    }
 
     @Override
     public int rezerwuj(Rezerwacja rezerwacja){
