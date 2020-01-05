@@ -7,6 +7,13 @@ public class Rezerwacja {
     private Integer id_bagaz;
     private String miejsce;
 
+    public Rezerwacja(Integer id_pasazer, Integer id_lot, Integer id_bagaz, String miejsce){
+        setId_pasazer(id_pasazer);
+        setId_bagaz(id_bagaz);
+        setMiejsce(miejsce);
+        setId_lot(id_lot);
+    }
+
     public void setId_pasazer(Integer id_pasazer){
         this.id_pasazer = id_pasazer;
     }

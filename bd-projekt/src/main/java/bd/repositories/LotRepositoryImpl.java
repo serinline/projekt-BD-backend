@@ -32,7 +32,7 @@ public class LotRepositoryImpl implements LotRepository {
     public List<Lot> znajdzPoWylocie(String miasto){
         return jdbcTemplate.query(
                 "select * from lot where lotnisko_wylot like ?",
-                new Object[]{"%" + miasto},
+                new Object[]{miasto},
                 (rs, rowNum) ->
                         new Lot(
                                 rs.getString("lotnisko_wylot"),
@@ -47,7 +47,7 @@ public class LotRepositoryImpl implements LotRepository {
     public List<Lot> znajdzPoPrzylocie(String miasto){
         return jdbcTemplate.query(
                 "select * from lot where lotnisko_przylot like ?",
-                new Object[]{"%" + miasto},
+                new Object[]{miasto},
                 (rs, rowNum) ->
                         new Lot(
                                 rs.getString("lotnisko_wylot"),
@@ -62,7 +62,7 @@ public class LotRepositoryImpl implements LotRepository {
     public List<Lot> znajdzPoPrzylocieWylocie(String miasto_wylot, String miasto_przylot){
         return jdbcTemplate.query(
                 "select * from lot where lotnisko_przylot like ? and lotnisko_wylot like ?",
-                new Object[]{"%" + miasto_przylot, "%" + miasto_wylot},
+                new Object[]{miasto_przylot, miasto_wylot},
                 (rs, rowNum) ->
                         new Lot(
                                 rs.getString("lotnisko_wylot"),

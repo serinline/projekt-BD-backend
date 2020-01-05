@@ -7,11 +7,11 @@ public class Pracownik {
     private String obywatelstwo;
     private String stanowisko;
 
-    public Pracownik(String imie, String nazwisko, String stanowisko, int pesel, String obywatelstwo) {
+    public Pracownik(String imie, String nazwisko, String stanowisko/*, int pesel*/, String obywatelstwo) {
         setImie(imie);
         setNazwisko(nazwisko);
         setStanowisko(stanowisko);
-        setPesel(pesel);
+        //setPesel(pesel);
         setObywatelstwo(obywatelstwo);
     }
 

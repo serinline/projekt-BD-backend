@@ -17,8 +17,8 @@ public class SamolotRepositoryImpl implements SamolotRepository {
     @Override
     public List<Samolot> znajdzPoId(Integer id) {
         return jdbcTemplate.query(
-                "select * from samolot where id like ?",
-                new Object[]{"%" + id},
+                "select * from samolot where id_samolot = ?",
+                new Object[]{id},
                 (rs, rowNum) ->
                         new Samolot(
                                 rs.getInt("id_samolot"),
