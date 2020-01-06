@@ -20,6 +20,7 @@ public class LotRepositoryImpl implements LotRepository {
                 "select * from lot",
                 (rs, rowNum) ->
                         new Lot(
+                                rs.getInt("id_lot"),
                                 rs.getString("lotnisko_wylot"),
                                 rs.getString("lotnisko_przylot"),
                                 rs.getString("wylot"),
@@ -35,6 +36,7 @@ public class LotRepositoryImpl implements LotRepository {
                 new Object[]{miasto},
                 (rs, rowNum) ->
                         new Lot(
+                                rs.getInt("id_lot"),
                                 rs.getString("lotnisko_wylot"),
                                 rs.getString("lotnisko_przylot"),
                                 rs.getString("wylot"),
@@ -50,6 +52,7 @@ public class LotRepositoryImpl implements LotRepository {
                 new Object[]{miasto},
                 (rs, rowNum) ->
                         new Lot(
+                                rs.getInt("id_lot"),
                                 rs.getString("lotnisko_wylot"),
                                 rs.getString("lotnisko_przylot"),
                                 rs.getString("wylot"),
@@ -65,6 +68,7 @@ public class LotRepositoryImpl implements LotRepository {
                 new Object[]{miasto_przylot, miasto_wylot},
                 (rs, rowNum) ->
                         new Lot(
+                                rs.getInt("id_lot"),
                                 rs.getString("lotnisko_wylot"),
                                 rs.getString("lotnisko_przylot"),
                                 rs.getString("wylot"),

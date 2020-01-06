@@ -1,17 +1,21 @@
 package bd.models;
 
 public class Lot {
+    private Integer id_lot;
     private String lotnisko_wylot;
     private String lotnisko_przylot;
     private String wylot;
     private String przylot;
 
-    public Lot(String lotnisko_wylot, String lotnisko_przylot, String wylot, String przylot) {
+    public Lot(Integer id, String lotnisko_wylot, String lotnisko_przylot, String wylot, String przylot) {
+        setId_lot(id);
         setLotnisko_przylot(lotnisko_przylot);
         setLotnisko_wylot(lotnisko_wylot);
         setPrzylot(przylot);
         setWylot(wylot);
     }
+
+    public Integer getId_lot(){ return id_lot; }
 
     public String getLotnisko_wylot(){
         return lotnisko_wylot;
@@ -27,6 +31,10 @@ public class Lot {
 
     public String getWylot() {
         return wylot;
+    }
+
+    public void setId_lot(Integer id_lot) {
+        this.id_lot = id_lot;
     }
 
     public void setLotnisko_przylot(String lotnisko_przylot) {

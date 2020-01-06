@@ -4,6 +4,7 @@ import bd.models.Bagaz;
 import org.springframework.web.bind.annotation.*;
 import bd.repositories.BagazRepository;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class BagazController {
 

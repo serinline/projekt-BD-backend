@@ -2,11 +2,9 @@ package bd.controllers;
 
 import bd.models.Pasazer;
 import bd.repositories.PasazerRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class PasazerController {
     private final
@@ -16,7 +14,7 @@ public class PasazerController {
         this.pasazerRepository = pasazerRepository;
     }
 
-    @PostMapping(value = "/pasazer", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/pasazer", consumes = {"multipart/form-data"}, produces = "application/json")
     @ResponseBody
     Pasazer pasazer(@RequestBody Pasazer pasazer) {
         int returnCode = pasazerRepository.dodajPasazera(pasazer);
