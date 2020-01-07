@@ -16,7 +16,7 @@ public class BagazRepositoryImpl implements BagazRepository {
     @Override
     public int dodajBagaz(Bagaz bagaz){
         return jdbcTemplate.update(
-                    "insert into bagaz (id_rezerwacja, waga) values (?, ?)"
+                    "insert into bagaz (id_rezerwacja, waga) values (?, ?)",
                     bagaz.getId_rezerwacja(),
                     bagaz.getWaga()
              );

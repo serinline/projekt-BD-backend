@@ -16,7 +16,7 @@ public class PasazerController {
         this.pasazerRepository = pasazerRepository;
     }
 
-    @PostMapping(value = "/pasazer", consumes = {"multipart/form-data"}, produces = "application/json")
+    @PostMapping(value = "/pasazer", consumes = {"application/json"}, produces = "application/json")
     @ResponseBody
     Pasazer pasazer(@RequestBody Pasazer pasazer) {
         int returnCode = pasazerRepository.dodajPasazera(pasazer);
