@@ -4,6 +4,8 @@ import bd.models.Pasazer;
 import bd.repositories.PasazerRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class PasazerController {
@@ -23,5 +25,12 @@ public class PasazerController {
         }
         return null;
     }
+
+    @GetMapping("/pasazer/pesel")
+    public List<Pasazer> zanajdzId(@PathVariable Integer pesel){
+        return pasazerRepository.zanajdzId(pesel);
+    }
+
+
 
 }

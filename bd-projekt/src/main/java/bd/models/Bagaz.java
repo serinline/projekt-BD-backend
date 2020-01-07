@@ -5,6 +5,13 @@ public class Bagaz {
     private Integer id_rezerwacja;
     private Integer waga;
 
+    public Bagaz(){}
+
+    public Bagaz(Integer id_rezerwacja, Integer waga){
+        setId_rezerwacja(id_rezerwacja);
+        setWaga(waga);
+    }
+
     public Integer getId_bagaz() {
         return id_bagaz;
     }

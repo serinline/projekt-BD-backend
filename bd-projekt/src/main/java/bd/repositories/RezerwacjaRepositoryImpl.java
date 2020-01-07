@@ -17,16 +17,15 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
     @Override
     public int updateMiejsca(String miejsce, Integer id_samolot){
         return jdbcTemplate.update(
-                "update miejsca set zajete = true where miejsce like ? and id_samolot = ?;",
+                "update miejsca set zajete = true where miejsce like ? and id_samolot = ?",
                 miejsce, id_samolot);
     }
 
     @Override
     public int rezerwuj(Rezerwacja rezerwacja){
-        return jdbcTemplate.update("insert into rezerwacja (id_pasazer, id_lot, id_bagaz, miejsce) values (?, ?, ?, ?)",
+        return jdbcTemplate.update("insert into rezerwacja (id_pasazer, id_lot, miejsce) values (?, ?, ?)",
                 rezerwacja.getId_pasazer(),
                 rezerwacja.getId_lot(),
-                rezerwacja.getId_bagaz(),
                 rezerwacja.getMiejsce()
         );
     }
@@ -47,5 +46,12 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                                 rs.getString("obywatelstwo")
                         )
         );
+    }
+
+    @Override
+    public int dodajBagazDoRezerwacji(Integer id_rezerwacja){
+        return jdbcTemplate.update(
+                "update rezerwacja set id_bagaz = (select id_bagaz from bagaz where id_rezerwacja = ?) where id_rezerwacja = ?",
+                id_rezerwacja, id_rezerwacja);
     }
 }

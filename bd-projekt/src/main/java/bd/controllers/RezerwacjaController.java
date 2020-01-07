@@ -28,13 +28,22 @@ public class RezerwacjaController {
         return null;
     }
 
-    @GetMapping("/zaloga/{id}")
-    List<Pracownik> zaloga(@PathVariable Integer id){
-        return rezerwacjaRepository.wypiszZaloge(id);
+    @GetMapping("/zaloga/{id_lot}")
+    List<Pracownik> zaloga(@PathVariable Integer id_lot){
+        return rezerwacjaRepository.wypiszZaloge(id_lot);
     }
 
     @PutMapping("/miejsca/{msc}/{id}")
     int zajeteMiejsce(@PathVariable String msc, @PathVariable Integer id){
         return rezerwacjaRepository.updateMiejsca(msc, id);
     }
+
+    @PutMapping("/rezerwacjaUpdate/{id_rezerwacja}")
+    int dodajBagazDoRezerwacji( @PathVariable Integer id_rezerwacja){
+        return rezerwacjaRepository.dodajBagazDoRezerwacji(id_rezerwacja);
+    }
+
+
+
+
 }

@@ -45,4 +45,19 @@ public class PasazerRepositoryImpl implements PasazerRepository {
         );
     }
 
+    @Override
+    public List<Pasazer> zanajdzId(Integer pesel){
+        return jdbcTemplate.query(
+                "select id_pasazer from pasazer where pesel = ?",
+                new Object[]{pesel},
+                (rs, rowNum) ->
+                        new Pasazer(
+                                rs.getInt("id_pasazer"),
+                                rs.getString("imie"),
+                                rs.getString("nazwisko"),
+                                rs.getInt("pesel"),
+                                rs.getString("obywatelstwo"))
+        );
+    }
+
 }

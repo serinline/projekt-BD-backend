@@ -13,4 +13,6 @@ public interface RezerwacjaRepository {
 
     int rezerwuj(Rezerwacja rezerwacja);
 
+    int dodajBagazDoRezerwacji(Integer id_rezerwacja);
+
 }
