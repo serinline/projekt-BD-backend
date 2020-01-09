@@ -15,4 +15,6 @@ public interface RezerwacjaRepository {
 
     int dodajBagazDoRezerwacji(Integer id_rezerwacja);
 
+    Integer znajdzIdRez();
+
 }

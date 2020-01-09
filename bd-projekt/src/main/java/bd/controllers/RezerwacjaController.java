@@ -44,6 +44,12 @@ public class RezerwacjaController {
     }
 
 
+    @GetMapping("/rezerwacja/id")
+    Integer idRezerwacji(){
+        return rezerwacjaRepository.znajdzIdRez();
+    }
+
+
 
 
 }

@@ -55,5 +55,13 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                 id_rezerwacja, id_rezerwacja);
     }
 
+    @Override
+    public Integer znajdzIdRez(){
+        return jdbcTemplate.queryForObject(
+                "select max(id_rezerwacja) from rezerwacja", Integer.class
+        );
+    }
+
+
 
 }
