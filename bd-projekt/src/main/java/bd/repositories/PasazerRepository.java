@@ -12,6 +12,6 @@ public interface PasazerRepository {
 
     List<Pasazer> wypiszWszystkich();
 
-    List<Pasazer> zanajdzId(Integer pesel);
+    Integer znajdzId();
 
 }

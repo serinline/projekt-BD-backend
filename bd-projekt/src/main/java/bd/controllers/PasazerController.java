@@ -26,11 +26,8 @@ public class PasazerController {
         return null;
     }
 
-    @GetMapping("/pasazer/pesel")
-    public List<Pasazer> zanajdzId(@PathVariable Integer pesel){
-        return pasazerRepository.zanajdzId(pesel);
+    @GetMapping("/pasazer/id")
+    public Integer znajdzId(){
+        return pasazerRepository.znajdzId();
     }
-
-
-
 }

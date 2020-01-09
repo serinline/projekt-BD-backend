@@ -54,4 +54,6 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                 "update rezerwacja set id_bagaz = (select id_bagaz from bagaz where id_rezerwacja = ?) where id_rezerwacja = ?",
                 id_rezerwacja, id_rezerwacja);
     }
+
+
 }
