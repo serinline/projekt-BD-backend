@@ -24,4 +24,9 @@ public class BagazController {
         }
         return null;
     }
+
+    @DeleteMapping("/usun/bagaz/{bagaz_id}")
+    void usunBagaz(@PathVariable Integer bagaz_id){
+        bagazRepository.usun(bagaz_id);
+    }
 }

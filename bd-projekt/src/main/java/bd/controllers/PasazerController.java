@@ -30,4 +30,11 @@ public class PasazerController {
     public Integer znajdzId(){
         return pasazerRepository.znajdzId();
     }
+
+    @DeleteMapping("/usun/pasazer/{pasazer_id}")
+    void usunBagaz(@PathVariable Integer pasazer_id){
+        pasazerRepository.usun(pasazer_id);
+    }
+
+
 }

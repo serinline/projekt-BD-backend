@@ -14,11 +14,13 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+
+    // rewrite the function to accept id_lot and get id_samolot
     @Override
-    public int updateMiejsca(String miejsce, Integer id_samolot){
+    public int updateMiejsca(String miejsce, Integer id_lot){
         return jdbcTemplate.update(
-                "update miejsca set zajete = true where miejsce like ? and id_samolot = ?",
-                miejsce, id_samolot);
+                "update miejsca set zajete = true where miejsce like ? and id_samolot = (select id_samolot from lot where id_lot = ?)",
+                miejsce, id_lot);
     }
 
     @Override
@@ -62,6 +64,19 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
         );
     }
 
-
+    @Override
+    public List<Pracownik> wypiszCalaZaloge (){
+        return jdbcTemplate.query(
+                "select * from pracownik ",
+                (rs, rowNum) ->
+                        new Pracownik(
+                                rs.getString("imie"),
+                                rs.getString("nazwisko"),
+                                rs.getString("stanowisko"),
+                                //rs.getInt("pesel"),
+                                rs.getString("obywatelstwo")
+                        )
+        );
+    }
 
 }

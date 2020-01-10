@@ -49,6 +49,12 @@ public class RezerwacjaController {
         return rezerwacjaRepository.znajdzIdRez();
     }
 
+    @GetMapping("/zaloga")
+    List<Pracownik> calaZaloga(){
+        return rezerwacjaRepository.wypiszCalaZaloge();
+    }
+
+
 
 
 
