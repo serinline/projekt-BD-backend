@@ -25,6 +25,6 @@ public class BagazRepositoryImpl implements BagazRepository {
     @Override
     public int usun(Integer id){
         return jdbcTemplate.update(
-                "delete bagaz where id_bagaz = ?", id);
+                "delete from bagaz where id_bagaz = ?", id);
     }
 }

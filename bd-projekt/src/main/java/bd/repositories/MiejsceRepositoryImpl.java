@@ -17,7 +17,7 @@ public class MiejsceRepositoryImpl implements MiejsceRepository {
     @Override
     public List<Miejsce> znajdzWolne(Integer id_lot){
         return jdbcTemplate.query(
-                "select * from miejsca join lot on miejsca.id_samolot = lot.id_samolot where lot.id_lot = ?",
+                "select * from miejsca join lot on miejsca.id_samolot = lot.id_samolot where miejsca.zajete is null and lot.id_lot = ?",
                 new Object[]{id_lot},
                 (rs, rowNum) ->
                         new Miejsce(

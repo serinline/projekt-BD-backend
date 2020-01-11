@@ -17,7 +17,7 @@ public class LotRepositoryImpl implements LotRepository {
     @Override
     public List<Lot> wypiszWszystkie(){
         return jdbcTemplate.query(
-                "select * from lot",
+                "select * from lot order by wylot",
                 (rs, rowNum) ->
                         new Lot(
                                 rs.getInt("id_lot"),

@@ -1,18 +1,30 @@
 package bd.models;
 
+import org.springframework.data.relational.core.sql.In;
+
 public class Pracownik {
+    private Integer id_pracownik;
     private String imie;
     private String nazwisko;
     private Integer pesel;
     private String obywatelstwo;
     private String stanowisko;
 
-    public Pracownik(String imie, String nazwisko, String stanowisko/*, int pesel*/, String obywatelstwo) {
+    public Pracownik(int id_pracownik, String imie, String nazwisko, String stanowisko/*, int pesel*/, String obywatelstwo) {
+        setId_pracownik(id_pracownik);
         setImie(imie);
         setNazwisko(nazwisko);
         setStanowisko(stanowisko);
         //setPesel(pesel);
         setObywatelstwo(obywatelstwo);
+    }
+
+    public Integer getId_pracownik() {
+        return id_pracownik;
+    }
+
+    public void setId_pracownik(Integer id_pracownik) {
+        this.id_pracownik = id_pracownik;
     }
 
     public String getImie(){

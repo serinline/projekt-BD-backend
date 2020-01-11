@@ -27,7 +27,7 @@ public class PasazerRepositoryImpl implements PasazerRepository {
     @Override
     public int usun(Integer id){
         return jdbcTemplate.update(
-                "delete pasazer where id_pasazer = ?", id);
+                "delete from pasazer where id_pasazer = ?", id);
     }
 
 

@@ -14,8 +14,6 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-
-    // rewrite the function to accept id_lot and get id_samolot
     @Override
     public int updateMiejsca(String miejsce, Integer id_lot){
         return jdbcTemplate.update(
@@ -35,12 +33,11 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
     @Override
     public List<Pracownik> wypiszZaloge (Integer id_lot){
         return jdbcTemplate.query(
-                "select * from pracownik where id_pracownik = " +
-                        "(select id_pracownik from zaloga inner join lot on " +
-                        "zaloga.id_zaloga =(select id_zaloga from lot where id_lot=?))",
-                new Object[]{"%" + id_lot},
+                "select * from pracownik join zaloga on pracownik.id_pracownik = zaloga.id_pracownik where zaloga.id_zaloga = (select id_zaloga from lot where id_lot=?);",
+                new Object[]{id_lot},
                 (rs, rowNum) ->
                         new Pracownik(
+                                rs.getInt("id_pracownik"),
                                 rs.getString("imie"),
                                 rs.getString("nazwisko"),
                                 rs.getString("stanowisko"),
@@ -70,6 +67,7 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                 "select * from pracownik ",
                 (rs, rowNum) ->
                         new Pracownik(
+                                rs.getInt("id_pracownik"),
                                 rs.getString("imie"),
                                 rs.getString("nazwisko"),
                                 rs.getString("stanowisko"),
