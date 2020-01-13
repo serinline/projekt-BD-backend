@@ -37,4 +37,9 @@ public class PasazerController {
     }
 
 
+    @GetMapping("/pasazerowie")
+    List<Pasazer> znajdzWszystkich(){
+        return pasazerRepository.wypiszWszystkich();
+    }
+
 }
