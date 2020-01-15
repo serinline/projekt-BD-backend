@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://bd-project-frontend.herokuapp.com")
 @RestController
 public class LotController {
     private final LotRepository lotRepository;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin (origins = "http://localhost:3000")
+@CrossOrigin (origins = "https://bd-project-frontend.herokuapp.com")
 @RestController
 public class MiejsceController {
     private final MiejsceRepository miejsceRepository;
