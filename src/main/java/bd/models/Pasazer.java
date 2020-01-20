@@ -4,10 +4,10 @@ public class Pasazer {
     private Integer id_pasazer;
     private String imie;
     private String nazwisko;
-    private Integer pesel;
+    private Long pesel;
     private String obywatelstwo;
 
-    public Pasazer(int id_pasazer, String imie, String nazwisko, int pesel, String obywatelstwo) {
+    public Pasazer(int id_pasazer, String imie, String nazwisko, Long pesel, String obywatelstwo) {
         setId_pasazer(id_pasazer);
         setImie(imie);
         setNazwisko(nazwisko);
@@ -29,7 +29,7 @@ public class Pasazer {
         return nazwisko;
     }
 
-    public Integer getPesel() {
+    public Long getPesel() {
         return pesel;
     }
 
@@ -49,7 +49,7 @@ public class Pasazer {
         this.nazwisko = nazwisko;
     }
 
-    public void setPesel(Integer pesel){
+    public void setPesel(Long pesel){
         this.pesel = pesel;
     }
 

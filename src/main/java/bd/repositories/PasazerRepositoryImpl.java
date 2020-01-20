@@ -40,7 +40,7 @@ public class PasazerRepositoryImpl implements PasazerRepository {
                                 rs.getInt("id_pasazer"),
                                 rs.getString("imie"),
                                 rs.getString("nazwisko"),
-                                rs.getInt("pesel"),
+                                rs.getLong("pesel"),
                                 rs.getString("obywatelstwo"))
         );
     }
