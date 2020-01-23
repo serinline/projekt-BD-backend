@@ -33,10 +33,10 @@ public class RezerwacjaController {
         return rezerwacjaRepository.wypiszZaloge(id_lot);
     }
 
-    @PutMapping("/miejsca/{msc}/{id}")
-    int zajeteMiejsce(@PathVariable String msc, @PathVariable Integer id){
-        return rezerwacjaRepository.updateMiejsca(msc, id);
-    }
+//    @PutMapping("/miejsca/{msc}/{id}")
+//    int zajeteMiejsce(@PathVariable String msc, @PathVariable Integer id){
+//        return rezerwacjaRepository.updateMiejsca(msc, id);
+//    }
 
     @PutMapping("/rezerwacjaUpdate/{id_rezerwacja}")
     int dodajBagazDoRezerwacji( @PathVariable Integer id_rezerwacja){

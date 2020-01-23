@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RezerwacjaRepository {
 
-    int updateMiejsca(String miejsce, Integer id_samolot);
+//    int updateMiejsca(String miejsce, Integer id_samolot);
 
     List<Pracownik> wypiszZaloge (Integer id_lot);
 

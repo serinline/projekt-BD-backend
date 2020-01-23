@@ -14,12 +14,12 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public int updateMiejsca(String miejsce, Integer id_lot){
-        return jdbcTemplate.update(
-                "update miejsca set zajete = true where miejsce like ? and id_samolot = (select id_samolot from lot where id_lot = ?)",
-                miejsce, id_lot);
-    }
+//    @Override
+//    public int updateMiejsca(String miejsce, Integer id_lot){
+//        return jdbcTemplate.update(
+//                "update miejsca set zajete = true where miejsce like ? and id_samolot = (select id_samolot from lot where id_lot = ?)",
+//                miejsce, id_lot);
+//    }
 
     @Override
     public int rezerwuj(Rezerwacja rezerwacja){
@@ -41,7 +41,6 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                                 rs.getString("imie"),
                                 rs.getString("nazwisko"),
                                 rs.getString("stanowisko"),
-                                //rs.getInt("pesel"),
                                 rs.getString("obywatelstwo")
                         )
         );
@@ -71,7 +70,6 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                                 rs.getString("imie"),
                                 rs.getString("nazwisko"),
                                 rs.getString("stanowisko"),
-                                //rs.getInt("pesel"),
                                 rs.getString("obywatelstwo")
                         )
         );
@@ -84,9 +82,9 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                 (rs, rowNum) ->
                         new Rezerwacja(
                                 rs.getInt("id_rezerwacja"),
-                                rs.getInt("id_pasazer")
-//                                rs.getInt("id_lot"),
-//                                rs.getInt("id_bagaz")
+                                rs.getInt("id_pasazer"),
+                                rs.getInt("id_lot"),
+                                rs.getInt("id_bagaz")
                         )
         );
     }
