@@ -13,6 +13,13 @@ public class Rezerwacja {
         setId_lot(id_lot);
     }
 
+    public Rezerwacja(Integer id_pasazer, Integer id_lot/*, String miejsce*/, Integer id_bagaz){
+        setId_pasazer(id_pasazer);
+//        setMiejsce(miejsce);
+        setId_lot(id_lot);
+        setId_bagaz(id_bagaz);
+    }
+
     public void setId_pasazer(Integer id_pasazer){
         this.id_pasazer = id_pasazer;
     }

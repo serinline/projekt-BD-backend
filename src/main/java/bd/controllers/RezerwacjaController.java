@@ -49,6 +49,11 @@ public class RezerwacjaController {
         return rezerwacjaRepository.znajdzIdRez();
     }
 
+    @GetMapping("/rezerwacje")
+    List<Rezerwacja> rezerwacje(){
+        return rezerwacjaRepository.wypiszRezerwacje();
+    }
+
     @GetMapping("/zaloga")
     List<Pracownik> calaZaloga(){
         return rezerwacjaRepository.wypiszCalaZaloge();

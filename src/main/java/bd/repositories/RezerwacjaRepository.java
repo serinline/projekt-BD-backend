@@ -19,4 +19,6 @@ public interface RezerwacjaRepository {
 
     List<Pracownik> wypiszCalaZaloge ();
 
+    List<Rezerwacja> wypiszRezerwacje();
+
 }
