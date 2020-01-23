@@ -85,7 +85,8 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                         new Rezerwacja(
                                 rs.getInt("id_rezerwacja"),
                                 rs.getInt("id_pasazer"),
-                                rs.getInt("id_lot")
+                                rs.getInt("id_lot"),
+                                rs.getInt("id_bagaz")
                         )
         );
     }

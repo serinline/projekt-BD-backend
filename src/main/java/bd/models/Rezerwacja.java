@@ -13,7 +13,8 @@ public class Rezerwacja {
         setId_lot(id_lot);
     }
 
-    public Rezerwacja(Integer id_pasazer, Integer id_lot/*, String miejsce*/, Integer id_bagaz){
+    public Rezerwacja(Integer id_rez, Integer id_pasazer, Integer id_lot/*, String miejsce*/, Integer id_bagaz){
+        setId_rezerwacja(id_rez);
         setId_pasazer(id_pasazer);
 //        setMiejsce(miejsce);
         setId_lot(id_lot);
