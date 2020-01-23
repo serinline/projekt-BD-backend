@@ -7,9 +7,9 @@ public class Rezerwacja {
     private Integer id_bagaz;
     private String miejsce;
 
-    public Rezerwacja(Integer id_pasazer, Integer id_lot, String miejsce){
+    public Rezerwacja(Integer id_pasazer, Integer id_lot/*, String miejsce*/){
         setId_pasazer(id_pasazer);
-        setMiejsce(miejsce);
+//        setMiejsce(miejsce);
         setId_lot(id_lot);
     }
 
