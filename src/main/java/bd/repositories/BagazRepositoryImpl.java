@@ -4,6 +4,8 @@ import bd.models.Bagaz;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class BagazRepositoryImpl implements BagazRepository {
 
@@ -26,5 +28,17 @@ public class BagazRepositoryImpl implements BagazRepository {
     public int usun(Integer id){
         return jdbcTemplate.update(
                 "delete from bagaz where id_bagaz = ?", id);
+    }
+
+    @Override
+    public List<Bagaz> wyswietl(){
+        return jdbcTemplate.query("select * from bagaz",
+                (rs, rowNum) ->
+                    new Bagaz(
+                            rs.getInt("id_bagaz"),
+                            rs.getInt("waga"),
+                            rs.getInt("id_rezerwacja")
+                    )
+        );
     }
 }

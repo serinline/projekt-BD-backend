@@ -29,4 +29,7 @@ public class BagazController {
     void usunBagaz(@PathVariable Integer bagaz_id){
         bagazRepository.usun(bagaz_id);
     }
+
+    @GetMapping
+    void wyswietlBagaze() { bagazRepository.wyswietl();}
 }

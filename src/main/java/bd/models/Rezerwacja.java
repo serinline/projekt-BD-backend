@@ -5,11 +5,6 @@ public class Rezerwacja {
     private Integer id_rezerwacja;
     private Integer id_lot;
 
-//    public Rezerwacja(Integer id_pasazer, Integer id_lot/*, String miejsce*/){
-//        setId_pasazer(id_pasazer);
-////        setMiejsce(miejsce);
-//        setId_lot(id_lot);
-//    }
 
     public Rezerwacja(Integer id_rezerwacja, Integer id_pasazer, Integer id_lot ){
         setId_rezerwacja(id_rezerwacja);
