@@ -30,6 +30,6 @@ public class BagazController {
         bagazRepository.usun(bagaz_id);
     }
 
-    @GetMapping
+    @GetMapping("/bagaze")
     void wyswietlBagaze() { bagazRepository.wyswietl();}
 }
