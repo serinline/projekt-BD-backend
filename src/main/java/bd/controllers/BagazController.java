@@ -4,6 +4,8 @@ import bd.models.Bagaz;
 import org.springframework.web.bind.annotation.*;
 import bd.repositories.BagazRepository;
 
+import java.util.List;
+
 @CrossOrigin(origins = "https://bd-project-frontend.herokuapp.com")
 @RestController
 public class BagazController {
@@ -31,5 +33,5 @@ public class BagazController {
     }
 
     @GetMapping("/bagaze")
-    void wyswietlBagaze() { bagazRepository.wyswietl();}
+    List<Bagaz> wyswietlBagaze() { return bagazRepository.wyswietl();}
 }
