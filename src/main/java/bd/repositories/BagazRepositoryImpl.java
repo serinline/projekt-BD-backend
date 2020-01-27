@@ -17,11 +17,16 @@ public class BagazRepositoryImpl implements BagazRepository {
 
     @Override
     public int dodajBagaz(Bagaz bagaz){
-        return jdbcTemplate.update(
+        try {
+            return jdbcTemplate.update(
                     "insert into bagaz (id_rezerwacja, waga) values (?, ?)",
                     bagaz.getId_rezerwacja(),
                     bagaz.getWaga()
-             );
+            );
+        }
+        catch (RuntimeException e) {
+            return 0;
+        }
         }
 
     @Override

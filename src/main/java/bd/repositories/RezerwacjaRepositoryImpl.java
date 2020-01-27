@@ -29,16 +29,21 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "insert into rezerwacja (id_pasazer, id_lot) values (?, ?)";
 
-        jdbcTemplate.update(
-                connection -> {
-                    PreparedStatement ps = connection.prepareStatement(query, new String[] {"id_rezerwacja"});
-                    ps.setInt(1, rezerwacja.getId_pasazer());
-                    ps.setInt(2, rezerwacja.getId_lot());
-                    return ps;
-                }, keyHolder);
+        try {
+            jdbcTemplate.update(
+                    connection -> {
+                        PreparedStatement ps = connection.prepareStatement(query, new String[]{"id_rezerwacja"});
+                        ps.setInt(1, rezerwacja.getId_pasazer());
+                        ps.setInt(2, rezerwacja.getId_lot());
+                        return ps;
+                    }, keyHolder);
 
 
-        return (long) keyHolder.getKey();
+            return (long) keyHolder.getKey();
+        }
+        catch (RuntimeException e) {
+            return 0;
+        }
     }
 
     @Override
