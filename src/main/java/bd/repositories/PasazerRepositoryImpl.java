@@ -52,7 +52,8 @@ public class PasazerRepositoryImpl implements PasazerRepository {
                 pasazer.getObywatelstwo(),
                 keyHolder);
 
-        return keyHolder.getKey().intValue();
+        Number key = keyHolder.getKey();
+        return key.intValue();
     }
 
     @Override
