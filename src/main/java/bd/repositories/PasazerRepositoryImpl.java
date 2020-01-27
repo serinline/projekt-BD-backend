@@ -49,8 +49,9 @@ public class PasazerRepositoryImpl implements PasazerRepository {
                 pasazer.getImie(),
                 pasazer.getNazwisko(),
                 pasazer.getPesel(),
-                pasazer.getObywatelstwo()),
+                pasazer.getObywatelstwo(),
                 keyHolder);
+
         return keyHolder.getKey().intValue();
     }
 
