@@ -20,7 +20,7 @@ public class RezerwacjaController {
 
     @PostMapping(value = "/rezerwacja", consumes = "application/json", produces = "application/json")
     @ResponseBody
-    Integer rezerwacja(@RequestBody Rezerwacja rezerwacja) {
+    Long rezerwacja(@RequestBody Rezerwacja rezerwacja) {
             return rezerwacjaRepository.rezerwuj(rezerwacja);
     }
 

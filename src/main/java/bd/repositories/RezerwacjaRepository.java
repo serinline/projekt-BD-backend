@@ -11,7 +11,7 @@ public interface RezerwacjaRepository {
 
     List<Pracownik> wypiszZaloge (Integer id_lot);
 
-    int rezerwuj(Rezerwacja rezerwacja);
+    long rezerwuj(Rezerwacja rezerwacja);
 
     int dodajBagazDoRezerwacji(Integer id_rezerwacja);
 

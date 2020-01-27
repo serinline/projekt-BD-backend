@@ -25,7 +25,7 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
 //    }
 
     @Override
-    public int rezerwuj(Rezerwacja rezerwacja){
+    public long rezerwuj(Rezerwacja rezerwacja){
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "insert into rezerwacja (id_pasazer, id_lot) values (?, ?)";
 
@@ -38,7 +38,7 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
                 }, keyHolder);
 
 
-        return (int) keyHolder.getKey();
+        return (long) keyHolder.getKey();
     }
 
     @Override
