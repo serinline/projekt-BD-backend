@@ -35,9 +35,17 @@ public class PasazerRepositoryImpl implements PasazerRepository {
     @Override
     public int dodajPasazera(Pasazer pasazer){
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        String query = "insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (:imie, :nazwisko, :pesel, :obywatelstwo)";
-        SqlParameterSource data = new BeanPropertySqlParameterSource(pasazer);
-        jdbcTemplate.update(query, data, keyHolder, new String[] { "id_pasazer" });
+        String query = "insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (?, ?, ?, ?)";
+
+        jdbcTemplate.update(
+                connection -> {
+                    PreparedStatement ps = connection.prepareStatement(query, new String[]{"id_pasazer"});
+                    ps.setString(1, pasazer.getImie());
+                    ps.setString(2, pasazer.getNazwisko());
+                    ps.setLong(3, pasazer.getPesel());
+                    ps.setString(4, pasazer.getObywatelstwo())
+                    return ps;
+                }, keyHolder);
         return keyHolder.getKey().intValue();
     }
 
