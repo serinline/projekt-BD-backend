@@ -18,12 +18,12 @@ public class PasazerController {
 
     @PostMapping(value = "/pasazer", consumes = {"application/json"}, produces = "application/json")
     @ResponseBody
-    Pasazer pasazer(@RequestBody Pasazer pasazer) {
-        long returnCode = pasazerRepository.dodajPasazera(pasazer);
-        if(returnCode == 1) {
-            return pasazer;
-        }
-        return null;
+    Long pasazer(@RequestBody Pasazer pasazer) {
+        return pasazerRepository.dodajPasazera(pasazer);
+//        if(returnCode == 1) {
+//            return pasazer;
+//        }
+//        return null;
     }
 
     @GetMapping("/pasazer/id")
