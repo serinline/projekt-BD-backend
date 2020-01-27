@@ -6,7 +6,7 @@ import bd.models.*;
 
 public interface PasazerRepository {
 
-    int dodajPasazera(Pasazer pasazer);
+    long dodajPasazera(Pasazer pasazer);
 
     int usun(Integer id);
 

@@ -34,7 +34,7 @@ public class PasazerRepositoryImpl implements PasazerRepository {
 //    }
 
     @Override
-    public int dodajPasazera(Pasazer pasazer){
+    public long dodajPasazera(Pasazer pasazer){
         KeyHolder keyHolder = new GeneratedKeyHolder();
         String query = "insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (?, ?, ?, ?)";
 
@@ -54,7 +54,7 @@ public class PasazerRepositoryImpl implements PasazerRepository {
 //                pasazer.getObywatelstwo(),
 //                keyHolder);
 
-        return (int) keyHolder.getKey();
+        return (long) keyHolder.getKey();
     }
 
     @Override
