@@ -40,7 +40,7 @@ public class PasazerRepositoryImpl implements PasazerRepository {
 
         jdbcTemplate.update(
                 connection -> {
-                    PreparedStatement ps = connection.prepareStatement(query);
+                    PreparedStatement ps = connection.prepareStatement(query, new String[] {"id"});
                     ps.setString(1, pasazer.getImie());
                     ps.setString(2, pasazer.getNazwisko());
                     ps.setLong(3, pasazer.getPesel());
