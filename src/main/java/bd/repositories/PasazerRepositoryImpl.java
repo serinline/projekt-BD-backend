@@ -21,16 +21,16 @@ public class PasazerRepositoryImpl implements PasazerRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public int dodajPasazera(Pasazer pasazer){
-        return jdbcTemplate.update(
-                "insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (?, ?, ?, ?)",
-                //pasazer.getId_pasazer(),
-                pasazer.getImie(),
-                pasazer.getNazwisko(),
-                pasazer.getPesel(),
-                pasazer.getObywatelstwo());
-    }
+//    @Override
+//    public int dodajPasazera(Pasazer pasazer){
+//        return jdbcTemplate.update(
+//                "insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (?, ?, ?, ?)",
+//                //pasazer.getId_pasazer(),
+//                pasazer.getImie(),
+//                pasazer.getNazwisko(),
+//                pasazer.getPesel(),
+//                pasazer.getObywatelstwo());
+//    }
 
     @Override
     public int dodajPasazera(Pasazer pasazer){
