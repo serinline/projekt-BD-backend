@@ -20,12 +20,8 @@ public class RezerwacjaController {
 
     @PostMapping(value = "/rezerwacja", consumes = "application/json", produces = "application/json")
     @ResponseBody
-        Rezerwacja rezerwacja(@RequestBody Rezerwacja rezerwacja) {
-            int returnCode = rezerwacjaRepository.rezerwuj(rezerwacja);
-            if(returnCode == 1) {
-                return rezerwacja;
-            }
-        return null;
+    Integer rezerwacja(@RequestBody Rezerwacja rezerwacja) {
+            return rezerwacjaRepository.rezerwuj(rezerwacja);
     }
 
     @GetMapping("/zaloga/{id_lot}")

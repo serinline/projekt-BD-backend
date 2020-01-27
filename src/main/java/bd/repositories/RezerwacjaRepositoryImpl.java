@@ -4,8 +4,11 @@ import bd.models.Pracownik;
 import bd.models.Rezerwacja;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
@@ -23,10 +26,19 @@ public class RezerwacjaRepositoryImpl implements RezerwacjaRepository {
 
     @Override
     public int rezerwuj(Rezerwacja rezerwacja){
-        return jdbcTemplate.update("insert into rezerwacja (id_pasazer, id_lot) values (?, ?)",
-                rezerwacja.getId_pasazer(),
-                rezerwacja.getId_lot()
-        );
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        String query = "insert into rezerwacja (id_pasazer, id_lot) values (?, ?)";
+
+        jdbcTemplate.update(
+                connection -> {
+                    PreparedStatement ps = connection.prepareStatement(query, new String[] {"id_rezerwacja"});
+                    ps.setInt(1, rezerwacja.getId_pasazer());
+                    ps.setInt(2, rezerwacja.getId_lot());
+                    return ps;
+                }, keyHolder);
+
+
+        return (int) keyHolder.getKey();
     }
 
     @Override
