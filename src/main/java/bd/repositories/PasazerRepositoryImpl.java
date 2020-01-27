@@ -45,11 +45,11 @@ public class PasazerRepositoryImpl implements PasazerRepository {
         SqlParameterSource fileParameters = new BeanPropertySqlParameterSource(pasazer);
         KeyHolder keyHolder = new GeneratedKeyHolder();
         getNamedParameterJdbcTemplate().update(
-                ("insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (?, ?, ?, ?)",
+                "insert into pasazer (imie, nazwisko, pesel, obywatelstwo) values (?, ?, ?, ?)",
                 pasazer.getImie(),
                 pasazer.getNazwisko(),
                 pasazer.getPesel(),
-                pasazer.getObywatelstwo()),
+                pasazer.getObywatelstwo(),
         , fileParameters, keyHolder);
         return keyHolder.getKey().intValue();
     }
