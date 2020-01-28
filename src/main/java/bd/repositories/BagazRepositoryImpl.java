@@ -41,8 +41,8 @@ public class BagazRepositoryImpl implements BagazRepository {
                 (rs, rowNum) ->
                     new Bagaz(
                             rs.getInt("id_bagaz"),
-                            rs.getInt("waga"),
-                            rs.getInt("id_rezerwacja")
+                            rs.getInt("id_rezerwacja"),
+                            rs.getInt("waga")
                     )
         );
     }
